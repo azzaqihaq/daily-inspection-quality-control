@@ -7,17 +7,19 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## How To Setup Project
+## Project Setup Instructions
 
-1. Clone the project
-2. Run 'Make Setup'
-3. Setup .env file, connect it with your DB
-4. Run 'php artisan migrate:fresh'
+### First Time Setup
+1. Clone the project repository.
+2. Run `<span style="color: red;">"make setup"</span>` to set up the project dependencies.
+3. Configure the `.env` file and connect it to your database.
+4. Run `<span style="color: red;">"php artisan migrate:fresh"</span>` to initialize the database schema.
 
-## How To Setup Project
+### Run The Project
+1. Run `<span style="color: red;">"npm run dev"</span>`.
+2. Run `<span style="color: red;">"php artisan serve"</span>`.
 
-1. Run 'npm run dev'
-2. Run 'php artisan serve'
+Follow these steps to set up and run the project successfully.
 
 
 ## About Laravel
