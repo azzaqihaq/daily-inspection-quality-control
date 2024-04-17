@@ -11,15 +11,17 @@
 
 ### First Time Setup
 1. Clone the project repository.
-2. Run `<span style="color: red;">"make setup"</span>` to set up the project dependencies.
+2. Run `make setup` to set up the project dependencies.
 3. Configure the `.env` file and connect it to your database.
-4. Run `<span style="color: red;">"php artisan migrate:fresh"</span>` to initialize the database schema.
+4. Run `php artisan migrate:fresh` to initialize the database schema.
 
 ### Run The Project
-1. Run `<span style="color: red;">"npm run dev"</span>`.
-2. Run `<span style="color: red;">"php artisan serve"</span>`.
+1. Run `npm run dev`.
+2. Run `php artisan serve`.
 
 Follow these steps to set up and run the project successfully.
+
+
 
 
 ## About Laravel
