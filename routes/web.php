@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PartScannerIndicatorController;
+use App\Http\Controllers\ProductDefectDetectionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,11 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/detect/product-defect', function () {
-    return view('/product_defect_detection/index');
-});
-
 Route::get('/test/react', function () {
     return view('/test/react');
 });
+
+Route::get('/detect/product-defect', [ProductDefectDetectionController::class, 'index']);
           
+Route::get('/detect/part-scanner-indicator', [PartScannerIndicatorController::class, 'index']);
