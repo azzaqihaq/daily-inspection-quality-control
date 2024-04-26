@@ -8,7 +8,7 @@
     <title>React Test</title>
 
     @viteReactRefresh
-    @vite('resources/js/test/app.jsx')
+    @vite('resources/js/test_react/app.jsx')
 </head>
 
 <body>

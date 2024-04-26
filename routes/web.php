@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test/react', function () {
-    return view('test.react');
+    return view('test_react.index');
 });
 
 Route::get('/detect/product-defect', [ProductDefectDetectionController::class, 'index']);
