@@ -8,4 +8,4 @@ db-refresh:
 	php artisan migrate:fresh
 
 start:
-	npm run dev && php artisan serve
+	npm run dev & php artisan serve
