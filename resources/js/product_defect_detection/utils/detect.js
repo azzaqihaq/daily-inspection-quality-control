@@ -1,6 +1,6 @@
 import * as tf from "@tensorflow/tfjs";
 import { renderBoxes } from "./renderBox";
-import labels from "./labels.json";
+import labels from "@trained_label/yolov8n_web_model.json";
 
 const numClass = labels.length;
 

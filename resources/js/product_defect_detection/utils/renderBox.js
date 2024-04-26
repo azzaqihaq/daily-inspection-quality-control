@@ -1,4 +1,4 @@
-import labels from "./labels.json";
+import labels from "@trained_label/yolov8n_web_model.json";
 
 /**
  * Render prediction boxes
