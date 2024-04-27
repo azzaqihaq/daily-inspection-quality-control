@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as tf from "@tensorflow/tfjs";
 import "@tensorflow/tfjs-backend-webgl";
-import ButtonHandler from "./components/btn-handler";
+import ButtonToggleCam from "./components/btn-toggle-cam";
 import LoadSpinner from "./components/load-spinner";
-import { detect, detectVideo } from "./utils/detect";
+import { detectVideo } from "./utils/detect";
 import "@css/app.css";
 
 const App = () => {
@@ -19,13 +19,8 @@ const App = () => {
     inputShape: [1, 0, 0, 3], // Initial input shape of the model
   });
 
-  // references
-  const imageRef = useRef(null);
   const cameraRef = useRef(null);
-  const videoRef = useRef(null);
   const canvasRef = useRef(null);
-
-  // model configs
   const modelName = "yolov8n";
 
   useEffect(() => {
@@ -63,13 +58,11 @@ const App = () => {
       </div>
 
       <div className="content">
-        <img src="#" ref={imageRef} onLoad={() => detect(imageRef.current, model, canvasRef.current)}/>
         <video autoPlay muted ref={cameraRef} onPlay={() => detectVideo(cameraRef.current, model, canvasRef.current)}/>
-        <video autoPlay muted ref={videoRef} onPlay={() => detectVideo(videoRef.current, model, canvasRef.current)}/>
         <canvas width={model.inputShape[1]} height={model.inputShape[2]} ref={canvasRef} />
       </div>
 
-      <ButtonHandler imageRef={imageRef} cameraRef={cameraRef} videoRef={videoRef} />
+      <ButtonToggleCam cameraRef={cameraRef} />
     </div>
   );
 };
