@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as tf from "@tensorflow/tfjs";
 import "@tensorflow/tfjs-backend-webgl"; // set backend to webgl
-import Loader from "./components/loader";
+import LoadSpinner from "./components/load-spinner";
 import ButtonHandler from "./components/btn-handler";
 import { detect, detectVideo } from "./utils/detect";
 import "@css/app.css";
@@ -49,7 +49,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {loading.loading && <Loader>Loading model... {(loading.progress * 100).toFixed(2)}%</Loader>}
+      {loading.loading && <LoadSpinner>Loading model... {(loading.progress * 100).toFixed(2)}%</LoadSpinner>}
       <div className="header">
         <h1>📷 YOLOv8 Live Detection App</h1>
         <p>

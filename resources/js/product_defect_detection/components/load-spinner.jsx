@@ -1,6 +1,6 @@
-import "@css/loader.css";
+import "@css/load-spinner.css";
 
-const Loader = (props) => {
+const LoadSpinner = (props) => {
   return (
     <div className="wrapper" {...props}>
       <div className="spinner"></div>
@@ -9,4 +9,4 @@ const Loader = (props) => {
   );
 };
 
-export default Loader;
+export default LoadSpinner;
