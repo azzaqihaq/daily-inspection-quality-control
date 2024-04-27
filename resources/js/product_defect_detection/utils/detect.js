@@ -2,15 +2,8 @@ import * as tf from "@tensorflow/tfjs";
 import { renderBoxes } from "./renderBox";
 import labels from "@trained_label/yolov8n_web_model.json";
 
-const numClass = labels.length;
+const classCount = labels.length;
 
-/**
- * Preprocess image / frame before forwarded into the model
- * @param {HTMLVideoElement|HTMLImageElement} source
- * @param {Number} modelWidth
- * @param {Number} modelHeight
- * @returns input tensor, xRatio and yRatio
- */
 const preprocess = (source, modelWidth, modelHeight) => {
   let xRatio, yRatio; // ratios for boxes
 
@@ -38,13 +31,6 @@ const preprocess = (source, modelWidth, modelHeight) => {
   return [input, xRatio, yRatio];
 };
 
-/**
- * Function run inference and do detection from source.
- * @param {HTMLImageElement|HTMLVideoElement} source
- * @param {tf.GraphModel} model loaded YOLOv8 tensorflow.js model
- * @param {HTMLCanvasElement} canvasRef canvas reference
- * @param {VoidFunction} callback function to run after detection process
- */
 export const detect = async (source, model, canvasRef, callback = () => {}) => {
   const [modelWidth, modelHeight] = model.inputShape.slice(1, 3); // get model width and height
 
@@ -73,7 +59,7 @@ export const detect = async (source, model, canvasRef, callback = () => {}) => {
 
   const [scores, classes] = tf.tidy(() => {
     // class scores
-    const rawScores = transRes.slice([0, 0, 4], [-1, -1, numClass]).squeeze(0); // #6 only squeeze axis 0 to handle only 1 class models
+    const rawScores = transRes.slice([0, 0, 4], [-1, -1, classCount]).squeeze(0); // #6 only squeeze axis 0 to handle only 1 class models
     return [rawScores.max(1), rawScores.argMax(1)];
   }); // get max scores and classes index
 
@@ -91,12 +77,6 @@ export const detect = async (source, model, canvasRef, callback = () => {}) => {
   tf.engine().endScope(); // end of scoping
 };
 
-/**
- * Function to detect video from every source.
- * @param {HTMLVideoElement} vidSource video source
- * @param {tf.GraphModel} model loaded YOLOv8 tensorflow.js model
- * @param {HTMLCanvasElement} canvasRef canvas reference
- */
 export const detectVideo = (vidSource, model, canvasRef) => {
   /**
    * Function to detect every frame from video
