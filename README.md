@@ -19,6 +19,9 @@
 1. Run `npm run dev`.
 2. Run `php artisan serve`.
 
+or you can just type in your terminal
+Run `make start` to run cmd `no 1.` and `no 2.` at a time.
+
 Follow these steps to set up and run the project successfully.
 
 ## License
