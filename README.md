@@ -15,12 +15,16 @@
 3. Configure the `.env` file and connect it to your database.
 4. Run `php artisan migrate:fresh` to initialize the database schema.
 
-### Run The Project
+### How to Run The Project
 1. Run `npm run dev`.
 2. Run `php artisan serve`.
 
-or you can just type in your terminal
+or you can just use Makefile feature
 Run `make start` to run cmd `no 1.` and `no 2.` at a time.
+
+### How to Stop The Project
+1. Go to your terminal you use to run the project.
+2. Press `Ctrl + C`.
 
 Follow these steps to set up and run the project successfully.
 
