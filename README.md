@@ -19,8 +19,7 @@
 1. Run `npm run dev`.
 2. Run `php artisan serve`.
 
-or you can just use Makefile feature
-Run `make start` to run cmd `no 1.` and `no 2.` at a time.
+or you can just use Makefile feature with `make start` to execute both commands at once.
 
 ### How to Stop The Project
 1. Go to your terminal you use to run the project.
