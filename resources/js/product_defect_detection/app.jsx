@@ -29,12 +29,12 @@ const App = () => {
         `${window.location.origin}/trained_model/${modelName}_web_model/model.json`,
         {
           onProgress: (fractions) => {
-            setLoading({ loading: true, progress: fractions }); // set loading fractions
+            setLoading({ loading: true, progress: fractions });
           },
         }
-      ); // load model
+      ); // Load model
 
-      // warming up model
+      // Warming up model
       const dummyInput = tf.ones(yolov8.inputs[0].shape);
       const warmupResults = yolov8.execute(dummyInput);
 
@@ -42,9 +42,9 @@ const App = () => {
       setModel({
         net: yolov8,
         inputShape: yolov8.inputs[0].shape,
-      }); // set model & input shape
+      }); // Set model & input shape
 
-      tf.dispose([warmupResults, dummyInput]); // cleanup memory
+      tf.dispose([warmupResults, dummyInput]); // Cleanup memory
     });
   }, []);
 
@@ -52,9 +52,8 @@ const App = () => {
     <div className="App">
       {loading.loading && <LoadSpinner>Preparing model... {(loading.progress * 100).toFixed(2)}%</LoadSpinner>}
       <div className="header">
-        <h1>📷 YOLOv8 Live Detection App</h1>
-        <p>YOLOv8 live detection application on browser powered by tensorflow.js</p>
-        <p>Serving : {modelName}</p>
+        <h1>Product Defect Detection</h1>
+        <p>Product defect live detection application</p>
       </div>
 
       <div className="content">
@@ -63,6 +62,9 @@ const App = () => {
       </div>
 
       <ButtonToggleCam cameraRef={cameraRef} />
+      <div className="model-info">
+        <p>Model version : {modelName}</p>
+      </div>
     </div>
   );
 };

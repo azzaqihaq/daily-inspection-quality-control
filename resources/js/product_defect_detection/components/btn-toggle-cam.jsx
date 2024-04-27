@@ -23,7 +23,7 @@ const ButtonToggleCam = ({ cameraRef }) => {
     <div className="btn-container">
       {/* Webcam Handler */}
       <button onClick={handleToggleCam}>
-        {streaming === "camera" ? "Stop" : "Start"} Webcam
+        {streaming === "camera" ? "Stop" : "Start"} Camera
       </button>
     </div>
   );
