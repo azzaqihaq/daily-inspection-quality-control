@@ -5,6 +5,7 @@
   height: 100%;
   z-index: 1000;
   display: flex;
+  flex-direction: column; /* Added to make children stack vertically */
   justify-content: center;
   align-items: center;
 }
@@ -21,14 +22,19 @@
 
 @keyframes spin {
   0% {
-    transform: rotate(0deg); /* Start posit */
+    transform: rotate(0deg); /* Start position */
   }
   100% {
-    transform: rotate(360deg); /* End posit */
+    transform: rotate(360deg); /* End position */
   }
 }
 
 .wrapper > p {
   margin: 0;
   font-size: large;
+}
+
+.wrapper > h1 {
+  margin-bottom: 5px; /* Added space between h1 and spinner */
+  font-size: x-large; /* Adjusted font size for h1 */
 }

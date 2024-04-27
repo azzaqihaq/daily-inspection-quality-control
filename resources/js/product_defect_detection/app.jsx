@@ -50,7 +50,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {loading.loading && <LoadSpinner>Loading model... {(loading.progress * 100).toFixed(2)}%</LoadSpinner>}
+      {loading.loading && <LoadSpinner>Preparing model... {(loading.progress * 100).toFixed(2)}%</LoadSpinner>}
       <div className="header">
         <h1>📷 YOLOv8 Live Detection App</h1>
         <p>YOLOv8 live detection application on browser powered by tensorflow.js</p>
