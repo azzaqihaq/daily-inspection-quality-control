@@ -1,6 +1,6 @@
 import labels from "@trained_label/yolov8n_web_model.json";
 
-export const renderBoxes = (canvasRef, boxes_data, scores_data, classes_data, ratios) => {
+export const renderBoxes = (canvasRef, boxesData, scoresData, classesData, ratios) => {
   const ctx = canvasRef.getContext("2d");
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear canvas
 
@@ -14,13 +14,13 @@ export const renderBoxes = (canvasRef, boxes_data, scores_data, classes_data, ra
   ctx.font = font;
   ctx.textBaseline = "top";
 
-  for (let i = 0; i < scores_data.length; ++i) {
+  for (let i = 0; i < scoresData.length; ++i) {
     // filter based on class threshold
-    const klass = labels[classes_data[i]];
-    const color = colors.get(classes_data[i]);
-    const score = (scores_data[i] * 100).toFixed(1);
+    const klass = labels[classesData[i]];
+    const color = colors.get(classesData[i]);
+    const score = (scoresData[i] * 100).toFixed(1);
 
-    let [y1, x1, y2, x2] = boxes_data.slice(i * 4, (i + 1) * 4);
+    let [y1, x1, y2, x2] = boxesData.slice(i * 4, (i + 1) * 4);
     x1 *= ratios[0];
     x2 *= ratios[0];
     y1 *= ratios[1];
