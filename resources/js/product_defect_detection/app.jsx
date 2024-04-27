@@ -1,17 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as tf from "@tensorflow/tfjs";
-import "@tensorflow/tfjs-backend-webgl"; // set backend to webgl
-import LoadSpinner from "./components/load-spinner";
+import "@tensorflow/tfjs-backend-webgl";
 import ButtonHandler from "./components/btn-handler";
+import LoadSpinner from "./components/load-spinner";
 import { detect, detectVideo } from "./utils/detect";
 import "@css/app.css";
 
 const App = () => {
-  const [loading, setLoading] = useState({ loading: true, progress: 0 }); // loading state
+  // State for loading and progress
+  const [loading, setLoading] = useState({
+    isLoading: true, // Indicates if something is loading
+    progress: 0, // Progress of the loading operation
+  });
+
+  // State for machine learning model and input shape
   const [model, setModel] = useState({
-    net: null,
-    inputShape: [1, 0, 0, 3],
-  }); // init model & input shape
+    net: null, // Placeholder for the machine learning model (net)
+    inputShape: [1, 0, 0, 3], // Initial input shape of the model
+  });
 
   // references
   const imageRef = useRef(null);
@@ -52,32 +58,14 @@ const App = () => {
       {loading.loading && <LoadSpinner>Loading model... {(loading.progress * 100).toFixed(2)}%</LoadSpinner>}
       <div className="header">
         <h1>📷 YOLOv8 Live Detection App</h1>
-        <p>
-          YOLOv8 live detection application on browser powered by <code>tensorflow.js</code>
-        </p>
-        <p>
-          Serving : <code className="code">{modelName}</code>
-        </p>
+        <p>YOLOv8 live detection application on browser powered by tensorflow.js</p>
+        <p>Serving : {modelName}</p>
       </div>
 
       <div className="content">
-        <img
-          src="#"
-          ref={imageRef}
-          onLoad={() => detect(imageRef.current, model, canvasRef.current)}
-        />
-        <video
-          autoPlay
-          muted
-          ref={cameraRef}
-          onPlay={() => detectVideo(cameraRef.current, model, canvasRef.current)}
-        />
-        <video
-          autoPlay
-          muted
-          ref={videoRef}
-          onPlay={() => detectVideo(videoRef.current, model, canvasRef.current)}
-        />
+        <img src="#" ref={imageRef} onLoad={() => detect(imageRef.current, model, canvasRef.current)}/>
+        <video autoPlay muted ref={cameraRef} onPlay={() => detectVideo(cameraRef.current, model, canvasRef.current)}/>
+        <video autoPlay muted ref={videoRef} onPlay={() => detectVideo(videoRef.current, model, canvasRef.current)}/>
         <canvas width={model.inputShape[1]} height={model.inputShape[2]} ref={canvasRef} />
       </div>
 

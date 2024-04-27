@@ -20,13 +20,6 @@
   margin: 5px 0;
 }
 
-.code {
-  padding: 5px;
-  color: greenyellow;
-  background-color: black;
-  border-radius: 5px;
-}
-
 .content > img {
   display: none;
   width: 100%;
