@@ -1,11 +1,11 @@
 import * as tf from "@tensorflow/tfjs";
-import { renderBoxes } from "./renderResult"; // Import the renderBoxes function from another file
+import { renderFeedback } from "./renderResult"; // Import the renderFeedback function from another file
 import labels from "@trained_label/yolov8n_web_model.json"; // Import labels from a JSON file
 
 const classCount = labels.length; // Get the number of classes from the labels
 
 // Preprocess the input image to prepare it for inference
-const preprocess = (source, modelWidth, modelHeight) => {
+const preprocessingImage = (source, modelWidth, modelHeight) => {
   let xRatio, yRatio; // Ratios for adjusting bounding box coordinates
 
   const input = tf.tidy(() => {
@@ -33,11 +33,11 @@ const preprocess = (source, modelWidth, modelHeight) => {
 };
 
 // Perform object detection on a single image frame
-export const detect = async (source, model, canvasRef, callback = () => {}) => {
+export const defectRecognition = async (source, model, canvasRef, callback = () => {}) => {
   const [modelWidth, modelHeight] = model.inputShape.slice(1, 3); // Get the model's input width and height
 
   tf.engine().startScope(); // Start a TensorFlow scope to manage resources
-  const [input, xRatio, yRatio] = preprocess(source, modelWidth, modelHeight); // Preprocess the image
+  const [input, xRatio, yRatio] = preprocessingImage(source, modelWidth, modelHeight); // Preprocess the image
 
   const res = model.net.execute(input); // Perform inference using the model
   const transRes = res.transpose([0, 2, 1]); // Transpose the result tensor for further processing
@@ -74,7 +74,7 @@ export const detect = async (source, model, canvasRef, callback = () => {}) => {
   const classesData = classes.gather(nms, 0).dataSync();
 
   // Render bounding boxes on the canvas
-  renderBoxes(canvasRef, boxesData, scoresData, classesData, [xRatio, yRatio]);
+  renderFeedback(canvasRef, boxesData, scoresData, classesData, [xRatio, yRatio]);
 
   // Dispose tensors to free up memory
   tf.dispose([res, transRes, boxes, scores, classes, nms]);
@@ -85,7 +85,7 @@ export const detect = async (source, model, canvasRef, callback = () => {}) => {
 };
 
 // Detect objects in a video stream
-export const detectVideo = (vidSource, model, canvasRef) => {
+export const convertToFrames = (vidSource, model, canvasRef) => {
   // Function to detect objects in each frame of the video
   const detectFrame = async () => {
     if (vidSource.videoWidth === 0 && vidSource.srcObject === null) {
@@ -95,7 +95,7 @@ export const detectVideo = (vidSource, model, canvasRef) => {
     }
 
     // Perform object detection on the video frame and request the next frame
-    detect(vidSource, model, canvasRef, () => {
+    defectRecognition(vidSource, model, canvasRef, () => {
       requestAnimationFrame(detectFrame);
     });
   };
