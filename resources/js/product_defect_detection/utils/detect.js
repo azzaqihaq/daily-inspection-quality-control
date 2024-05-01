@@ -1,5 +1,5 @@
 import * as tf from "@tensorflow/tfjs";
-import { renderFeedback } from "./renderResult"; // Import the renderFeedback function from another file
+import { renderFeedback } from "./renderFeedback"; // Import the renderFeedback function from another file
 import labels from "@trained_label/yolov8n_web_model.json"; // Import labels from a JSON file
 
 const classCount = labels.length; // Get the number of classes from the labels
