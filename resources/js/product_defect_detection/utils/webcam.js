@@ -1,11 +1,11 @@
 /**
  * Class to handle webcam
  */
-export class Webcam {
+export class accessCamera {
 
   open = (videoRef) => {
     // Check if the required APIs are available
-    if (this.isWebcamAvailable()) {
+    if (this.isCameraAvailable()) {
       // Request access to the webcam
       navigator.mediaDevices
         .getUserMedia({
@@ -39,7 +39,7 @@ export class Webcam {
   };
 
   // Check if webcam access is available in the browser.
-  isWebcamAvailable() {
+  isCameraAvailable() {
     return navigator.mediaDevices && navigator.mediaDevices.getUserMedia;
   }
 }
