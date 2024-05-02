@@ -4,7 +4,7 @@ export const renderFeedback = (canvasRef, boxesData, scoresData, classesData, ra
   const ctx = canvasRef.getContext("2d");
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear canvas
 
-  const colors = new Colors();
+  const colors = new generateBoxColor();
 
   // Font configuration
   const font = `${Math.max(
@@ -29,7 +29,7 @@ export const renderFeedback = (canvasRef, boxesData, scoresData, classesData, ra
     const height = y2 - y1;
 
     // Draw filled box with transparency
-    ctx.fillStyle = Colors.hexToRgba(color, 0.2);
+    ctx.fillStyle = generateBoxColor.hexToRgba(color, 0.2);
     ctx.fillRect(x1, y1, width, height);
 
     // Draw border box
@@ -55,7 +55,7 @@ export const renderFeedback = (canvasRef, boxesData, scoresData, classesData, ra
   }
 };
 
-class Colors {
+class generateBoxColor {
   constructor() {
     this.palette = [
       "#FF3838", "#FF9D97", "#FF701F", "#FFB21D", "#CFD231", "#48F90A",
