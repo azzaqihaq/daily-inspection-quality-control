@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as tf from "@tensorflow/tfjs";
 import "@tensorflow/tfjs-backend-webgl";
-import ButtonToggleCam from "./components/btn-toggle-cam";
+import Button from "./components/btn-toggle-cam";
 import LoadSpinner from "./components/load-spinner";
 import { convertToFrames } from "./utils/detect";
 import "@css/app.css";
@@ -61,7 +61,7 @@ const App = () => {
         <canvas width={model.inputShape[1]} height={model.inputShape[2]} ref={canvasRef} />
       </div>
 
-      <ButtonToggleCam cameraRef={cameraRef} />
+      <Button cameraRef={cameraRef} />
       <div className="model-info">
         <p>Model version : {modelName}</p>
       </div>

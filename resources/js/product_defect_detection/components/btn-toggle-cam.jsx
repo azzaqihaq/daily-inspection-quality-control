@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { accessCamera } from "../utils/webcam";
 
-const ButtonToggleCam = ({ cameraRef }) => {
+const Button = ({ cameraRef }) => {
   const [streaming, setStreaming] = useState(null); // streaming state
   const webcam = new accessCamera(); // webcam handler
 
@@ -29,4 +29,4 @@ const ButtonToggleCam = ({ cameraRef }) => {
   );
 };
 
-export default ButtonToggleCam;
+export default Button;
