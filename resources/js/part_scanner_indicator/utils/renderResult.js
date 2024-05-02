@@ -1,10 +1,11 @@
 import labels from "@trained_label/yolov8n_web_model.json";
 
-export const renderBoxes = (canvasRef, boxesData, scoresData, classesData, ratios) => {
+// Function renderResult to render the result to canvas
+export const renderResult = (canvasRef, boxesData, scoresData, classesData, ratios) => {
   const ctx = canvasRef.getContext("2d");
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear canvas
 
-  const colors = new Colors();
+  const colors = new generateBoxColor();
 
   // Font configuration
   const font = `${Math.max(
@@ -29,7 +30,7 @@ export const renderBoxes = (canvasRef, boxesData, scoresData, classesData, ratio
     const height = y2 - y1;
 
     // Draw filled box with transparency
-    ctx.fillStyle = Colors.hexToRgba(color, 0.2);
+    ctx.fillStyle = generateBoxColor.hexToRgba(color, 0.2);
     ctx.fillRect(x1, y1, width, height);
 
     // Draw border box
@@ -55,7 +56,7 @@ export const renderBoxes = (canvasRef, boxesData, scoresData, classesData, ratio
   }
 };
 
-class Colors {
+class generateBoxColor {
   constructor() {
     this.palette = [
       "#FF3838", "#FF9D97", "#FF701F", "#FFB21D", "#CFD231", "#48F90A",
