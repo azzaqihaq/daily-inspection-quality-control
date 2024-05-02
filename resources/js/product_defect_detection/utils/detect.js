@@ -2,9 +2,9 @@ import * as tf from "@tensorflow/tfjs";
 import { renderFeedback } from "./renderFeedback"; // Import the renderFeedback function from another file
 import labels from "@trained_label/yolov8n_web_model.json"; // Import labels from a JSON file
 
-const classCount = labels.length; // Get the number of classes from the labels
+const classCount = labels.length; // Variable to store total of class model
 
-// Preprocess the input image to prepare it for inference
+// Function preprocessingImage to reprocess the input image to prepare it for inference
 const preprocessingImage = (source, modelWidth, modelHeight) => {
   let xRatio, yRatio; // Ratios for adjusting bounding box coordinates
 
@@ -32,7 +32,7 @@ const preprocessingImage = (source, modelWidth, modelHeight) => {
   return [input, xRatio, yRatio]; // Return the preprocessed input along with the ratios
 };
 
-// Perform object detection on a single image frame
+// Function defectRecognition to perform object detection on a single image frame
 export const defectRecognition = async (source, model, canvasRef, callback = () => {}) => {
   const [modelWidth, modelHeight] = model.inputShape.slice(1, 3); // Get the model's input width and height
 
@@ -84,7 +84,7 @@ export const defectRecognition = async (source, model, canvasRef, callback = () 
   tf.engine().endScope(); // End the TensorFlow scope
 };
 
-// Detect objects in a video stream
+// Function convertToFrames to detect objects in a video stream
 export const convertToFrames = (vidSource, model, canvasRef) => {
   // Function to detect objects in each frame of the video
   const detectFrame = async () => {

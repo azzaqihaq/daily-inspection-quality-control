@@ -1,5 +1,6 @@
 import labels from "@trained_label/yolov8n_web_model.json";
 
+// Function renderFeedback to render the result to canvas
 export const renderFeedback = (canvasRef, boxesData, scoresData, classesData, ratios) => {
   const ctx = canvasRef.getContext("2d");
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear canvas
