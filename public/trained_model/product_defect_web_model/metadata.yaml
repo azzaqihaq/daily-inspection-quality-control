@@ -1,0 +1,15 @@
+description: Ultralytics best model trained on /content/datasets/Product Defect Detection.v1i.yolov8/data.yaml
+author: Ultralytics
+date: '2024-05-07T14:09:05.855740'
+version: 8.2.2
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 640
+- 640
+names:
+  0: damaged
+  1: intact

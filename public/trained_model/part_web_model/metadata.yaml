@@ -1,0 +1,17 @@
+description: Ultralytics best model trained on /content/datasets/see_bolts-nuts.v3i.yolov8/data.yaml
+author: Ultralytics
+date: '2024-04-29T07:05:04.248414'
+version: 8.2.2
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 640
+- 640
+names:
+  0: bolt
+  1: nut
+  2: screw_body
+  3: screw_head
