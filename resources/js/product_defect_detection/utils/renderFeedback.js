@@ -16,6 +16,10 @@ export const renderFeedback = (canvasRef, boxesData, scoresData, classesData, ra
   ctx.textBaseline = "top";
 
   for (let i = 0; i < scoresData.length; ++i) {
+    if ((scoresData[i] * 100) < 50) {
+      continue; // Skip rendering if score is below 50%
+    }  
+
     // filter based on class threshold
     const klass = labels[classesData[i]];
     const color = colors.get(classesData[i]);
