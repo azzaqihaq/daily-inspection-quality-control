@@ -1,4 +1,4 @@
-import labels from "@trained_label/yolov8n_web_model.json";
+import labels from "@trained_label/product_defect_web_model.json";
 
 // Function renderFeedback to render the result to canvas
 export const renderFeedback = (canvasRef, boxesData, scoresData, classesData, ratios) => {

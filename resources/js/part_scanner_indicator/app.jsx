@@ -21,7 +21,7 @@ const App = () => {
 
   const cameraRef = useRef(null);
   const canvasRef = useRef(null);
-  const modelName = "yolov8n";
+  const modelName = "part";
 
   useEffect(() => {
     tf.ready().then(async () => {

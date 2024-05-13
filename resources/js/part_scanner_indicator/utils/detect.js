@@ -1,6 +1,6 @@
 import * as tf from "@tensorflow/tfjs";
 import { renderResult } from "./renderResult"; // Import the renderResult function from another file
-import labels from "@trained_label/yolov8n_web_model.json"; // Import labels from a JSON file
+import labels from "@trained_label/part_web_model.json"; // Import labels from a JSON file
 
 const classCount = labels.length; // Variable to store total of class model
 
