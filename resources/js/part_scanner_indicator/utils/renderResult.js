@@ -19,7 +19,11 @@ export const renderResult = (canvasRef, boxesData, scoresData, classesData, rati
     if ((scoresData[i] * 100) < 50) {
       continue; // Skip rendering if score is below 50%
     }  
-    
+
+    if (classesData[i] !== 2) {
+      continue; // Skip rendering if class is not "screw_head"
+    }
+
     // filter based on class threshold
     const klass = labels[classesData[i]];
     const color = colors.get(classesData[i]);
