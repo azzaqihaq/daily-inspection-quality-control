@@ -67,7 +67,7 @@ export const renderResult = (canvasRef, boxesData, scoresData, classesData, rati
 class generateBoxColor {
   constructor() {
     this.palette = [
-      "#FF3838", "#FF9D97"
+      "#1d3426", "#1d3426"
     ];
     this.paletteSize = this.palette.length;
   }

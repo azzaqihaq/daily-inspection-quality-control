@@ -16,7 +16,7 @@ export const renderFeedback = (canvasRef, boxesData, scoresData, classesData, ra
   ctx.textBaseline = "top";
 
   for (let i = 0; i < scoresData.length; ++i) {
-    if ((scoresData[i] * 100) < 50) {
+    if ((scoresData[i] * 100) < 70) {
       continue; // Skip rendering if score is below 50%
     }  
 
@@ -63,7 +63,7 @@ export const renderFeedback = (canvasRef, boxesData, scoresData, classesData, ra
 class generateBoxColor {
   constructor() {
     this.palette = [
-      "#fc0000", "#00c0f0", "#ff6900", "#f5f000"
+      "#fc0000", "#07ca53", "#ff6900", "#f5f000"
     ];
     this.paletteSize = this.palette.length;
   }
