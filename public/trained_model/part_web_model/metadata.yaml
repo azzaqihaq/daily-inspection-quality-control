@@ -1,6 +1,6 @@
-description: Ultralytics best model trained on /content/datasets/see_bolts-nuts.v3i.yolov8/data.yaml
+description: Ultralytics best model trained on /content/datasets/Part Scanner Indicator.v3i.yolov8/data.yaml
 author: Ultralytics
-date: '2024-04-29T07:05:04.248414'
+date: '2024-05-19T13:23:30.831235'
 version: 8.2.2
 license: AGPL-3.0 License (https://ultralytics.com/license)
 docs: https://docs.ultralytics.com
@@ -11,7 +11,6 @@ imgsz:
 - 640
 - 640
 names:
-  0: bolt
-  1: nut
-  2: screw_body
-  3: screw_head
+  0: bottom
+  1: pull
+  2: top
